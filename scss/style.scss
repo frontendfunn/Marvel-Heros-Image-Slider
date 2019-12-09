@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+:root {
+  --font-family: 'Roboto', sans-serif;
+  --transition-time: 0.75s;
+
+  --spiderman-light-background: #c71b22;
+  --spiderman-dark-background: #9d1416;
+  --spiderman-background: #a61519;
+
+  --ironman-light-background: #6a0000;
+  --ironman-dark-background: #720000;
+  --ironman-background: #540b05;
+
+  --captain-background: #1c2b3c;
+  --captain-dark-background: #233046;
+  --captain-light-background: #26364b;
+}
+
+.marvel-container {
+  font-family: var(--font-family);
+  border-radius: 10px;
+  transition: all ease var(--transition-time);
+  overflow: hidden;
+  margin: 20px auto;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.75);
+}
+
+.marvel-container .swiper-wrapper {
+  margin-bottom: 40px;
+}
+.marvel-container .swiper-slide {
+  z-index: 5;
+}
+
+.marvel-container .name .sub-title,
+.marvel-container .name .title,
+.marvel-container .overview .title {
+  text-transform: uppercase;
+}
+
+.marvel-container .name .title,
+.marvel-container .overview .description,
+.marvel-container .overview .title {
+  color: var(--white);
+}
+
+.marvel-container .name {
+  margin-bottom: 3rem;
+}
+.marvel-container .name .sub-title {
+  color: var(--warning);
+  font-weight: 600;
+  margin-bottom: -0.5rem;
+}
+
+/*single elements animation*/
+.marvel-container .text-wrapper {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+.marvel-container .text-wrapper span {
+  position: relative;
+  transform: translateX(100%);
+  display: inline-block;
+  transition: all ease var(--transition-time);
+  transition-delay: 0.1s;
+}
+
+/****************************/
+
+.marvel-container .name .title {
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+.marvel-container .overview .description {
+  text-align: justify;
+  font-size: 14px;
+  opacity: 0.5;
+}
+.marvel-container .overview .title {
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.marvel-container .overview .title::after,
+.marvel-container .overview .title::before {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 10px;
+  background-color: var(--warning);
+  border-radius: 40px;
+  box-sizing: border-box;
+}
+.marvel-container .overview .title::before {
+  width: 20px;
+  top: 8px;
+  left: 0px;
+}
+.marvel-container .overview .title::after {
+  bottom: 8px;
+  left: 10px;
+}
+.marvel-container .purchase {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.marvel-container .purchase .year {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--white);
+  opacity: 0.5;
+  transform: translateY(150%);
+  transition: all ease var(--transition-time);
+  transition-delay: 0.15s;
+}
+.marvel-container .purchase .purchase-btn {
+  padding: 10px 40px;
+  text-transform: uppercase;
+  outline: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 4px;
+  color: var(--white);
+  transform: translateY(150%);
+  transition: all ease var(--transition-time);
+  transition-delay: 0.25s;
+}
+/*images*/
+
+.marvel-container .img-container {
+  height: 100%;
+  position: relative;
+  min-height: 250px;
+}
+
+.marvel-container .img-container .img-wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all ease var(--transition-time);
+}
+.marvel-container .img-container .img-wrapper.active {
+  opacity: 1;
+}
+.marvel-container .img-container .img-wrapper .background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+  z-index: 3;
+}
+
+.marvel-container .img-container .img-wrapper .background {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.marvel-container .img-container .img-wrapper .background::after {
+  content: '';
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  bottom: 0;
+  right: 0;
+  border-radius: 500px;
+  display: flex;
+  transition: all ease var(--transition-time);
+}
+.marvel-container .img-container .img-wrapper img {
+  position: relative;
+  bottom: 0;
+  max-width: 100%;
+  z-index: 4;
+  transform: scale(0.75);
+  opacity: 0;
+  transition: all ease var(--transition-time);
+}
+
+.marvel-container .img-container .img-wrapper.active img {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/*colors*/
+
+.marvel-container.spiderman {
+  background-color: var(--spiderman-light-background);
+}
+.marvel-container.spiderman .img-container .img-wrapper .background::after {
+  background-color: var(--spiderman-dark-background);
+}
+
+.marvel-container.spiderman .purchase .purchase-btn {
+  background-image: linear-gradient(90deg, var(--orange), var(--yellow));
+}
+
+.marvel-container.ironman {
+  background-color: var(--ironman-light-background);
+}
+.marvel-container.ironman .img-container .img-wrapper .background::after {
+  background-color: var(--ironman-dark-background);
+}
+
+.marvel-container.ironman .purchase .purchase-btn {
+  background-image: linear-gradient(90deg, var(--orange), var(--red));
+}
+
+.marvel-container.captain {
+  background-color: var(--captain-light-background);
+}
+.marvel-container.captain .img-container .img-wrapper .background::after {
+  background-color: var(--captain-dark-background);
+}
+
+.marvel-container.captain .purchase .purchase-btn {
+  background-image: linear-gradient(90deg, var(--cyan), var(--blue));
+}
+/*pagination*/
+.marvel-container .swiper-pagination .swiper-pagination-bullet {
+  background: var(--white);
+  height: 6px;
+  width: 6px;
+  border-radius: 10px;
+  transition: all ease var(--transition-time);
+}
+.marvel-container .swiper-pagination .swiper-pagination-bullet-active {
+  width: 24px;
+}
+
+/*active states*/
+
+.marvel-container .swiper-slide-active .text-wrapper span {
+  transform: translateX(0);
+}
+.marvel-container .swiper-slide-active .purchase .year,
+.marvel-container .swiper-slide-active .purchase .purchase-btn {
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .marvel-container {
+    margin: 150px auto 10px;
+    overflow: visible;
+  }
+  .marvel-container .name .sub-title {
+    font-size: 1.5rem;
+  }
+  .marvel-container .name .title {
+    font-size: 2.5rem;
+  }
+  .marvel-container .img-container .img-wrapper img {
+    max-width: 130%;
+    position: absolute;
+  }
+}
